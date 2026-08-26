@@ -1,0 +1,3 @@
+# Единый перенос строк — LF для текстовых файлов (см. hw_ai_rules.md п.4.1)
+* text=auto
+*.md text eol=lf

@@ -1,0 +1,230 @@
+/* components.css — переиспользуемые компоненты (кнопки, карточки, галерея, форма) */
+/* Переиспользуемые части вынесены сюда (hw_ai_rules п.3, 5). */
+
+/* --- Кнопки --- */
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  background: none;
+  color: inherit;
+}
+
+.button--primary {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+.button--primary:hover,
+.button--primary:focus-visible {
+  background-color: var(--color-accent-dark);
+}
+
+.button--ghost {
+  border-color: #fff;
+  color: #fff;
+}
+
+.button--ghost:hover,
+.button--ghost:focus-visible {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* --- Список услуг --- */
+.services__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-lg);
+}
+
+.service-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card__title {
+  margin-bottom: var(--space-sm);
+}
+
+.service-card__desc {
+  color: var(--color-text-muted);
+  flex: 1;
+  margin: 0 0 var(--space-md);
+}
+
+.service-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-card__price {
+  font-weight: 700;
+  color: var(--color-accent-dark);
+}
+
+.service-card__duration {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* --- Галерея --- */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-md);
+}
+
+.gallery-item {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.gallery-item__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.gallery-item:hover .gallery-item__image,
+.gallery-item:focus-visible .gallery-item__image {
+  transform: scale(1.04);
+}
+
+/* --- Лайтбокс --- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  z-index: 100;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox__figure {
+  margin: 0;
+  max-width: 820px;
+  width: 100%;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+
+.lightbox__image {
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+}
+
+.lightbox__caption {
+  margin-top: var(--space-md);
+  text-align: center;
+  color: var(--color-text);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background-color: #fff;
+  color: var(--color-text);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox__close:hover,
+.lightbox__close:focus-visible {
+  background-color: var(--color-accent-light);
+}
+
+/* --- Форма записи --- */
+.booking-form {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  max-width: 640px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.booking-form__field--full {
+  grid-column: 1 / -1;
+}
+
+.booking-form__label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+}
+
+.booking-form__input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: #fff;
+}
+
+.booking-form__input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.booking-form__status {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-weight: 500;
+}
+
+.booking-form__status--error {
+  color: var(--color-error);
+}
+
+.booking-form__status--success {
+  color: var(--color-success);
+}
+
+/* --- Адаптивность компонентов --- */
+@media (max-width: 640px) {
+  .booking-form {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__actions .button--ghost {
+    border-color: var(--color-accent);
+    color: var(--color-accent-dark);
+  }
+}

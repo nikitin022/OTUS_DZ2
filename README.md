@@ -17,6 +17,12 @@
 
 ## Описание проекта и правила разработки
 См. [`hw_ai_rules.md`](./hw_ai_rules.md) — свод требований к стеку, архитектуре, стилю кода и стандартам разработки.
+См. [`rules.md`](./rules.md) — детализированные правила для AI-агента (R1–R14).
+
+## Применение Chain-of-Thought (CoT)
+- [`cot_progress_without_rules.md`](./cot_progress_without_rules.md) — CoT-цикл варианта **«без правил»** (каталог `without_rules/`).
+- [`cot_progress_with_rules.md`](./cot_progress_with_rules.md) — CoT-цикл варианта **«с правилами»** (каталог `with_rules/`).
+- [`comparison_with_vs_without_rules.md`](./comparison_with_vs_without_rules.md) — **отдельный файл сравнения** итогов «с правилами» vs «без правил».
 
 ## Запуск
 1. Откройте `index.html` в браузере (двойной клик), **либо**
@@ -24,3 +30,6 @@
    ```bash
    python -m http.server 8000
    ```
+
+Доступные реализации: `without_rules/index.html` и `with_rules/index.html`.
+

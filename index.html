@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Сайт-визитка мастера: парикмахерское искусство и массаж. Услуги, прайс, галерея работ, запись онлайн.">
+  <title>Анна — парикмахер и массажист</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Шапка сайта с навигацией -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="header__logo" href="#hero">
+        <span class="header__logo-mark">А</span>
+        <span class="header__logo-text">Парикмахер &amp; Массажист</span>
+      </a>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a class="main-nav__link" href="#services">Услуги</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="#gallery">Галерея</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="#about">О мастере</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="#booking">Запись</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+      <a class="button button--primary header__cta" href="#booking">Записаться</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Главный экран (hero) -->
+    <section class="hero" id="hero">
+      <div class="container hero__inner">
+        <h1 class="hero__title">Анна<br>Парикмахер и массажист</h1>
+        <p class="hero__subtitle">
+          Стрижки, укладки и оздоровительный массаж — с заботой о вас
+          в уютном салоне в центре города.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#booking">Записаться онлайн</a>
+          <a class="button button--ghost" href="#services">Смотреть услуги</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Услуги и прайс -->
+    <section class="section services" id="services">
+      <div class="container">
+        <h2 class="section__title">Услуги и прайс</h2>
+        <p class="section__subtitle">Актуальный перечень услуг с ценами.</p>
+        <div class="services__list" id="services-list">
+          <!-- Список услуг заполняется из js/modules/services.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Галерея работ -->
+    <section class="section gallery" id="gallery">
+      <div class="container">
+        <h2 class="section__title">Галерея работ</h2>
+        <p class="section__subtitle">Примеры стрижек, окрашиваний и укладок.</p>
+        <div class="gallery__grid" id="gallery-grid">
+          <!-- Карточки работ заполняются из js/modules/gallery.js -->
+        </div>
+      </div>
+      <!-- Лайтбокс, скрыт до открытия -->
+      <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр работы" hidden>
+        <button class="lightbox__close" type="button" aria-label="Закрыть">×</button>
+        <figure class="lightbox__figure">
+          <img class="lightbox__image" id="lightbox-image" src="" alt="">
+          <figcaption class="lightbox__caption" id="lightbox-caption"></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- О мастере -->
+    <section class="section about" id="about">
+      <div class="container about__inner">
+        <div class="about__text">
+          <h2 class="section__title">О мастере</h2>
+          <p>
+            Меня зовут Анна. Более 8 лет помогаю людям выглядеть и чувствовать себя хорошо:
+            делаю аккуратные стрижки, естественные окрашивания и расслабляющий массаж.
+          </p>
+          <ul class="about__facts">
+            <li>Опыт работы — 8+ лет</li>
+            <li>Дипломы парикмахерского искусства и массажа</li>
+            <li>Индивидуальный подход к каждому клиенту</li>
+          </ul>
+        </div>
+        <figure class="about__photo">
+          <img class="about__image" src="assets/images/master.jpg" alt="Фотография мастера Анны в рабочем пространстве салона">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Запись на услугу -->
+    <section class="section booking" id="booking">
+      <div class="container">
+        <h2 class="section__title">Запись на услугу</h2>
+        <p class="section__subtitle">Заполните форму — я свяжусь с вами для подтверждения времени.</p>
+        <form class="booking-form" id="booking-form" novalidate>
+          <div class="booking-form__field">
+            <label class="booking-form__label" for="booking-name">Ваше имя</label>
+            <input class="booking-form__input" type="text" id="booking-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="booking-form__field">
+            <label class="booking-form__label" for="booking-phone">Телефон</label>
+            <input class="booking-form__input" type="tel" id="booking-phone" name="phone" autocomplete="tel" placeholder="+7 ___ ___-__-__" required>
+          </div>
+          <div class="booking-form__field">
+            <label class="booking-form__label" for="booking-service">Услуга</label>
+            <select class="booking-form__input" id="booking-service" name="service" required>
+              <option value="">— выберите услугу —</option>
+              <!-- Варианты заполняются из js/modules/services.js -->
+            </select>
+          </div>
+          <div class="booking-form__field">
+            <label class="booking-form__label" for="booking-date">Желаемая дата</label>
+            <input class="booking-form__input" type="date" id="booking-date" name="date" required>
+          </div>
+          <div class="booking-form__field booking-form__field--full">
+            <label class="booking-form__label" for="booking-comment">Комментарий (необязательно)</label>
+            <textarea class="booking-form__input" id="booking-comment" name="comment" rows="3"></textarea>
+          </div>
+          <p class="booking-form__status" id="booking-form-status" role="status" aria-live="polite"></p>
+          <button class="button button--primary" type="submit">Отправить заявку</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="section contacts" id="contacts">
+      <div class="container contacts__inner">
+        <div class="contacts__info">
+          <h2 class="section__title">Контакты</h2>
+          <address class="contacts__address">
+            <p>г. Москва, ул. Примерная, д. 12, салон «Уют»</p>
+            <p>Режим работы: Пн–Сб, 10:00–20:00</p>
+            <p>Телефон: <a href="tel:+79160000000">+7 (916) 000-00-00</a></p>
+            <p>Email: <a href="mailto:hello@anna-master.example">hello@anna-master.example</a></p>
+          </address>
+        </div>
+        <div class="contacts__map" role="img" aria-label="Схема расположения салона на карте">
+          <!-- Заглушка под карту; на реальном сайте — интерактивная карта -->
+          <p class="contacts__map-hint">Карта расположения салона</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подвал сайта -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="footer-year"></span> Анна — парикмахер и массажист.</p>
+      <p>Сайт разработан в рамках учебного проекта OTUS «ИИ-агенты».</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

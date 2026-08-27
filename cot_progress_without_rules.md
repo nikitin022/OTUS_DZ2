@@ -36,10 +36,10 @@ JS-логика с валидацией), требует соблюдения а
 | Шаг | Название | Файлы | Commit |
 |-----|----------|-------|--------|
 | 1 | Декомпозиция и схемы данных | (решения в этом документе) | — |
-| 2 | Семантическая разметка | `index.html` | `feat(html)` |
-| 3 | Стилизация | `css/main.css`, `css/components.css` | `feat(css)` |
-| 4 | Модульная JS-логика | `js/main.js`, `js/utils.js`, `js/modules/*` | `feat(js)` |
-| 5 | Тесты, проверка, документация | `tests/booking.test.js`, этот файл | `test(booking)`, `docs` |
+| 2 | Семантическая разметка | `without_rules/index.html` | `feat(html)` |
+| 3 | Стилизация | `without_rules/css/main.css`, `without_rules/css/components.css` | `feat(css)` |
+| 4 | Модульная JS-логика | `without_rules/js/main.js`, `without_rules/js/utils.js`, `without_rules/js/modules/*` | `feat(js)` |
+| 5 | Тесты, проверка, документация | `without_rules/tests/booking.test.js`, этот файл | `test(booking)`, `docs` |
 
 ---
 
@@ -72,7 +72,7 @@ F: Упорядоченный план подзадач (файлы → крит
 
 ---
 
-## 4. Шаг 2 — Семантическая разметка `index.html`
+## 4. Шаг 2 — Семантическая разметка `without_rules/index.html`
 
 ### 4.1 Промпт (RTCF)
 
@@ -88,7 +88,7 @@ F: Полный валидный HTML, секции-комментарии, из
 
 ### 4.2 Результат
 
-Создан `index.html` (165 строк) со всеми секциями:
+Создан `without_rules/index.html` (165 строк) со всеми секциями:
 `header` (логотип, навигация, CTA), `hero`, `services`, `gallery` (с лайтбоксом),
 `about`, `booking` (форма с `label` для каждого поля), `contacts`, `footer`.
 Семантика: `<header>`, `<nav>`, `<main>`, `<section>`, `<address>`, `aria-label`,
@@ -112,9 +112,9 @@ F: Полные файлы, список переменных, breakpoint.
 
 ### 5.2 Результат
 
-- `css/main.css` — переменные `:root` (палитра, отступы, радиусы, типографика),
+- `without_rules/css/main.css` — переменные `:root` (палитра, отступы, радиусы, типографика),
   базовая типографика, шапка/навигация, hero, «о мастере», контакты, футер.
-- `css/components.css` — переиспользуемые кнопки (`button--primary/ghost`),
+- `without_rules/css/components.css` — переиспользуемые кнопки (`button--primary/ghost`),
   карточки услуг, галерея, лайтбокс, форма записи.
 - Медиазапросы рядом с блоками; breakpoint 768px (планшет) и 640px (мобильная форма).
 - Контраст текста/фона соответствует WCAG AA.
@@ -141,17 +141,17 @@ F: Полные модули с export, инструкция инициализ�
 ### 6.2 Результат
 
 Созданы файлы:
-- `js/utils.js` — `getElementById`, `formatPrice`, `SERVICE_CATEGORIES`, `isNonEmptyString`.
-- `js/modules/services.js` — массив `SERVICES` (7 услуг), `renderServices()`,
+- `without_rules/js/utils.js` — `getElementById`, `formatPrice`, `SERVICE_CATEGORIES`, `isNonEmptyString`.
+- `without_rules/js/modules/services.js` — массив `SERVICES` (7 услуг), `renderServices()`,
   `populateBookingSelect()`.
-- `js/modules/gallery.js` — массив `WORKS` (6 работ), `initGallery()` с лайтбоксом,
+- `without_rules/js/modules/gallery.js` — массив `WORKS` (6 работ), `initGallery()` с лайтбоксом,
   закрытием по Esc/клику по фону.
-- `js/modules/booking.js` — `validateBooking()` (чистая функция), `initBooking()`.
-- `js/modules/contacts.js` — `initContacts()` (текущий год в футере).
-- `js/main.js` — точка входа `initApp()`.
+- `without_rules/js/modules/booking.js` — `validateBooking()` (чистая функция), `initBooking()`.
+- `without_rules/js/modules/contacts.js` — `initContacts()` (текущий год в футере).
+- `without_rules/js/main.js` — точка входа `initApp()`.
 
 Все модули безопасно завершаются при отсутствии контейнера (progressive enhancement).
-Добавлены placeholder-изображения (SVG) в `assets/images/`.
+Добавлены placeholder-изображения (SVG) в `without_rules/assets/images/`.
 
 В ходе шага выявлен и исправлен дефект: кнопка закрытия лайтбокса искалась
 через `grid.querySelector`, хотя находится в `lightbox` — исправлено на
@@ -176,7 +176,7 @@ F: Отчёт о проверке, покрытые/непокрытые кей�
 ### 7.2 Результат проверок
 
 - **Синтаксис JS:** `node --check` для всех 6 файлов — без ошибок.
-- **Юнит-тесты:** `node --test tests/booking.test.js` — **8/8 прошли**.
+- **Юнит-тесты:** `node --test without_rules/tests/booking.test.js` — **8/8 прошли**.
   Покрытые кейсы: валидная форма, пустое имя, пустой/некорректный телефон,
   телефон без разделителей, невыбранная услуга, пустая дата, множественные ошибки.
 - **Файлы/структура:** соответствуют `hw_ai_rules.md` п. 3.1.
@@ -204,17 +204,17 @@ F: Отчёт о проверке, покрытые/непокрытые кей�
 
 | Файл | Назначение |
 |------|------------|
-| `index.html` | Главная страница (все секции) |
-| `css/main.css` | Переменные, базовые стили, секции |
-| `css/components.css` | Переиспользуемые компоненты |
-| `js/main.js` | Точка входа (инициализация) |
-| `js/utils.js` | Хелперы |
-| `js/modules/services.js` | Услуги/прайс |
-| `js/modules/gallery.js` | Галерея и лайтбокс |
-| `js/modules/booking.js` | Форма записи и валидация |
-| `js/modules/contacts.js` | Контакты/футер |
-| `assets/images/*.svg` | Placeholder-изображения |
-| `tests/booking.test.js` | Юнит-тесты валидации |
+| `without_rules/index.html` | Главная страница (все секции) |
+| `without_rules/css/main.css` | Переменные, базовые стили, секции |
+| `without_rules/css/components.css` | Переиспользуемые компоненты |
+| `without_rules/js/main.js` | Точка входа (инициализация) |
+| `without_rules/js/utils.js` | Хелперы |
+| `without_rules/js/modules/services.js` | Услуги/прайс |
+| `without_rules/js/modules/gallery.js` | Галерея и лайтбокс |
+| `without_rules/js/modules/booking.js` | Форма записи и валидация |
+| `without_rules/js/modules/contacts.js` | Контакты/футер |
+| `without_rules/assets/images/*.svg` | Placeholder-изображения |
+| `without_rules/tests/booking.test.js` | Юнит-тесты валидации |
 
 Коммиты (ветка `feature/site`):
 `feat(html)` → `feat(css)` → `feat(js)` → `test(booking)` → `docs` (этот файл).

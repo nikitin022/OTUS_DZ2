@@ -156,7 +156,7 @@ h1, h2, h3 {
 .hero {
   background:
     linear-gradient(rgba(43, 35, 32, 0.45), rgba(43, 35, 32, 0.45)),
-    url('../assets/images/hero.jpg') center / cover no-repeat;
+    url('../assets/images/hero.svg') center / cover no-repeat;
   color: #fff;
   padding: var(--space-2xl) 0;
 }

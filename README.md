@@ -20,9 +20,9 @@
 См. [`rules.md`](./rules.md) — детализированные правила для AI-агента (R1–R14).
 
 ## Применение Chain-of-Thought (CoT)
-- [`cot_progress_without_rules.md`](./cot_progress_without_rules.md) — CoT-цикл варианта **«без правил»** (каталог `without_rules/`).
+- [`cot_progress_without_rules.md`](./cot_progress_without_rules.md) — CoT-цикл базового варианта (без детализированного `rules.md`, каталог `without_rules/`).
 - [`cot_progress_with_rules.md`](./cot_progress_with_rules.md) — CoT-цикл варианта **«с правилами»** (каталог `with_rules/`).
-- [`comparison_with_vs_without_rules.md`](./comparison_with_vs_without_rules.md) — **отдельный файл сравнения** итогов «с правилами» vs «без правил».
+- [`testing.md`](./testing.md) — отчёт **ДО/ПОСЛЕ** применения правил (на изолированной задаче) и сравнение полных циклов разработки.
 
 ## Запуск
 1. Откройте `index.html` в браузере (двойной клик), **либо**
